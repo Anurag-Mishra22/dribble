@@ -1,21 +1,31 @@
 import { ProjectInterface } from "@/common.types";
+import Categories from "@/components/Categories";
 import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions";
 
-type ProjectSearch = {
-    projectSearch: {
-        edges: { node: ProjectInterface }[]
-        pageInfo: {
-            hasPreviousPage: boolean
-            hasNextPage: boolean
-            endCursor: string
-            startCursor: string
-        }
-    }
+type SearchParams = {
+    category?: string | null;
+    endcursor?: string | null;
 }
 
-const Home = async () => {
-    const data = await fetchAllProjects() as ProjectSearch
+type Props = {
+    searchParams: SearchParams
+}
+
+type ProjectSearch = {
+    projectSearch: {
+        edges: { node: ProjectInterface }[];
+        pageInfo: {
+            hasPreviousPage: boolean;
+            hasNextPage: boolean;
+            startCursor: string;
+            endCursor: string;
+        };
+    },
+}
+
+const Home = async ({ searchParams: { category, endcursor } }: Props) => {
+    const data = await fetchAllProjects(category) as ProjectSearch
 
     const projectsToDisplay = data?.projectSearch?.edges || [];
 
@@ -28,7 +38,7 @@ const Home = async () => {
 
     return (
         <section className="flexStart flex-col paddings mb-16">
-            <h1>Categories</h1>
+            <Categories />
             <section className="projects-grid">
                 {projectsToDisplay.map(({ node }) => (
                     <ProjectCard
