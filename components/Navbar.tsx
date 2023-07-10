@@ -26,10 +26,11 @@ const Navbar = async () => {
                 {
                     session?.user ? (
                         <>
-                            <ProfileMenu session={session} />
-                            <Link href="/create-project">
+                            <Link href="/create-project" className="bg-black hover:bg-black/60 text-sm p-4 rounded-lg text-white font-semibold">
                                 Share Work
                             </Link>
+
+                            <ProfileMenu session={session} />
 
 
                         </>
