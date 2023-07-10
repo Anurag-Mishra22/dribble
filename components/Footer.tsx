@@ -18,7 +18,7 @@ const Footer = () => {
         <footer className='flexStart footer'>
             <div className='flex flex-col gap-12 w-full'>
                 <div className='flex items-start flex-col'>
-                    <Image src="/logo.png" width={115} height={38} alt="Dribble" />
+                    <Image src="/pink-logo.svg" width={115} height={38} alt="Dribble" />
                     <p className="text-start text-sm font-normal mt-5 max-w-xs">Dribbble is the world’s leading community for creatives to share, grow, and get hired. </p>
                 </div>
                 <div className="flex flex-wrap gap-12">
