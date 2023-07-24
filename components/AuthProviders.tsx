@@ -4,6 +4,7 @@ import { getProviders, signIn } from "next-auth/react"
 import { useState, useEffect } from "react"
 
 
+
 type Provider = {
     id: string,
     name: string,
@@ -33,7 +34,10 @@ const AuthProviders = () => {
             <div>
                 {
                     Object.values(providers).map((provider: Provider, i) => (
-                        <button key={i} onClick={() => signIn(provider?.id)} >{provider.id}</button>
+                        <button key={i} onClick={() => signIn(provider?.id)} className="shadow-md p-2 rounded-md items-center flex" >
+                            <img src="/google.png" className="w-12  object-contain " />
+                            {provider.id}
+                        </button>
                     ))
                 }
             </div>

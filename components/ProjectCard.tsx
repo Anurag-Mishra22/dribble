@@ -34,7 +34,7 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
                     alt="project image"
                 />
 
-                <div className="hidden group-hover:flex profile_card-title">
+                <div className="hidden group-hover:flex test-black profile_card-title">
                     <p className="w-full">{title}</p>
                 </div>
             </Link>
